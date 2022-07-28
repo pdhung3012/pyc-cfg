@@ -225,7 +225,8 @@ class CFGBlock:
         output = ""
 
         # Printing the block ID
-        output += colored("[B" + str(self._blockID) + "]\n", "red")
+        # output += colored("[B" + str(self._blockID) + "]\n", "red")
+        output += "[B" + str(self._blockID) + "]\n"
 
         # Printing the statements
         i = 0
@@ -236,14 +237,14 @@ class CFGBlock:
         # Printing predecessors
         for e in self._preds.begin():
             if(e.getReachableBlock() is not None):
-                output += colored("Preds " + "(" + str(self._preds.size()) + ")" +
-                                  ": " + "B" + str(e.getReachableBlock().getBlockID()) + "\n", "cyan")
+                # output += colored("Preds " + "(" + str(self._preds.size()) + ")" +
+                #                   ": " + "B" + str(e.getReachableBlock().getBlockID()) + "\n", "cyan")
+                output += "Preds " + "(" + str(self._preds.size()) + ")" +": " + "B" + str(e.getReachableBlock().getBlockID()) + "\n"
 
         # Printing predecessors
         for e in self._succs.begin():
             if(e.getReachableBlock() is not None):
-                output += colored("Succs " + "(" + str(self._succs.size()) + ")" +
-                                  ": " + "B" + str(e.getReachableBlock().getBlockID()) + "\n", "magenta")
+                output += "Succs " + "(" + str(self._succs.size()) + ")" +": " + "B" + str(e.getReachableBlock().getBlockID()) + "\n"
 
         output += "\n"
         return output
